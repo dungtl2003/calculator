@@ -4,13 +4,52 @@ A modern, fast, and responsive desktop calculator built with **C++** and **Qt6 Q
 
 This project demonstrates a clean Model-View architecture, separating the heavy mathematical logic (C++) from a smooth, declarative user interface (QML) using modern Qt6 module practices.
 
+![Screenshot](assets/screenshot.png)
+
+## Table of Contents
+- [Features](#-features)
+- [Keyboard Shortcuts](#%EF%B8%8F-keyboard-shortcuts)
+- [To-Do List](#-to-do-list)
+- [Project Structure](#%EF%B8%8F-project-structure)
+- [Prerequisites](#%EF%B8%8F-prerequisites)
+- [Building & Installation](#-building--installation)
+- [Architecture Notes](#-architecture-notes)
+- [License](#-license)
+
 ## Features
 
 * **Advanced Layout Engine:** A dynamic history list that perfectly aligns mathematical operators in a center column, while keeping numbers right-aligned. Long numbers automatically become horizontally scrollable to prevent UI breaking.
-* **Global Keyboard Support:** Fully mapped keyboard shortcuts. You can type numbers and operators directly, use `Enter`/`Return` for results, `Esc` to clear, `Backspace` to delete, and the `Up`/`Down` arrow keys to smoothly scroll through your calculation history.
 * **Modern Qt6 Architecture:** Built using Qt6's updated QML Module system (`qt_add_qml_module`) and declarative type registration (`QML_ELEMENT`, `QML_ANONYMOUS`).
 * **Efficient Memory Management:** Uses standard Qt Object Trees and `QAbstractListModel` for high-performance UI rendering without memory leaks.
-* **Linux Ready:** Includes fully compliant FreeDesktop `.desktop` and `.appdata.xml` files for seamless integration into Linux application launchers and software centers.
+* **Linux Ready:** Includes fully compliant FreeDesktop `.desktop`, SVG icons, and `.appdata.xml` files for seamless integration into Linux application launchers and software centers.
+
+## Keyboard Shortcuts
+
+This calculator features global shortcut listeners, meaning you do not need to click the app to focus it before typing.
+
+| Key | Action |
+| :--- | :--- |
+| `0`-`9`, `.` | Enter numbers and decimals |
+| `+`, `-`, `*`, `/` | Standard mathematical operations |
+| `=`, `Enter`, `Return`| Calculate result |
+| `Esc` | All Clear (AC) |
+| `Backspace` | Delete last digit |
+| `Up Arrow`, `k` | Scroll history list up |
+| `Down Arrow`, `j` | Scroll history list down |
+
+## To-Do List
+
+- [x] Core arithmetic engine setup
+- [x] Model-View history list architecture
+- [x] Global keyboard shortcut integration
+- [x] Dynamic text scrolling for long numbers
+- [x] Linux FreeDesktop integration (`.desktop` & `appdata`)
+- [x] Environment-variable based logging levels (`spdlog`)
+- [ ] Dark/Light system theme detection
+- [ ] Scientific calculator layout/mode
+- [ ] Persist calculation history between sessions (SQLite)
+- [ ] Windows/macOS installer packaging
+- [ ] Uninstall app script
 
 ## Project Structure
 
