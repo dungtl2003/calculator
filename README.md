@@ -7,14 +7,14 @@ This project demonstrates a clean Model-View architecture, separating the heavy 
 ![Screenshot](assets/screenshot.png)
 
 ## Table of Contents
-- [Features](#-features)
-- [Keyboard Shortcuts](#%EF%B8%8F-keyboard-shortcuts)
-- [To-Do List](#-to-do-list)
-- [Project Structure](#%EF%B8%8F-project-structure)
-- [Prerequisites](#%EF%B8%8F-prerequisites)
-- [Building & Installation](#-building--installation)
-- [Architecture Notes](#-architecture-notes)
-- [License](#-license)
+- [Features](#features)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+- [To-Do List](#to-do-list)
+- [Project Structure](#project-structure)
+- [Prerequisites](#prerequisites)
+- [Building & Installation](#building--installation)
+- [Architecture Notes](#architecture-notes)
+- [License](#license)
 
 ## Features
 
