@@ -34,6 +34,7 @@ Rectangle {
             text: "9"
         }
         OperatorButton {
+            keySequences: ["/"]
             text: "÷"
         }
         ACButton {}
@@ -47,10 +48,12 @@ Rectangle {
             text: "6"
         }
         OperatorButton {
+            keySequences: ["*"]
             text: "×"
         }
         OperatorButton {
             text: "="
+            keySequences: ["=", "Return", "Enter"]
             Layout.rowSpan: 2
             autoProcess: false
             onClicked: CalculatorEngine.assignNewValue()

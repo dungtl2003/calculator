@@ -71,6 +71,7 @@ qt_add_qml_module(${CMAKE_PROJECT_NAME}
     qml/BackspaceButton.qml
     qml/FlipSignButton.qml
     qml/DotButton.qml
+    qml/ScrollableText.qml
 
     SOURCES
     src/CalculatorEngine.h

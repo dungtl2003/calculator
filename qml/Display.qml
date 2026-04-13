@@ -25,6 +25,8 @@ Rectangle {
     radius: 20
 
     ListView {
+        id: historyList
+
         anchors {
             fill: parent
             leftMargin: root.__spacing
@@ -32,6 +34,13 @@ Rectangle {
             topMargin: root.__spacing
         }
         clip: true
+
+        Behavior on contentY {
+            NumberAnimation {
+                duration: 150
+                easing.type: Easing.OutQuad
+            }
+        }
 
         model: CalculatorEngine.historyModel
         delegate: delegate
@@ -51,23 +60,21 @@ Rectangle {
 
             property ListView __lv: ListView.view
 
-            Text {
-                id: pref
-
-                text: delegateRoot.prefix
-                color: "#25bd71"
-                font.pointSize: 26
-            }
-
             Item {
-                Layout.fillWidth: true
+                // By giving this a fixed width, all operators form a perfectly straight column
+                Layout.preferredWidth: 40
+                Layout.fillHeight: true
+
+                Text {
+                    text: delegateRoot.prefix
+                    color: "#25bd71"
+                    font.pointSize: 26
+                    anchors.centerIn: parent
+                }
             }
 
-            Text {
-                id: val
+            ScrollableText {
                 text: delegateRoot.value
-                color: "#d4cfc5"
-                font.pointSize: 24
             }
         }
     }
@@ -77,25 +84,41 @@ Rectangle {
 
         RowLayout {
             id: footerRoot
-            width: ListView.view.width
 
+            width: ListView.view.width
             visible: ListView.view.count > 0
 
-            Text {
-                text: "="
-                color: "#25bd71"
-                font.pointSize: 26
-            }
-
             Item {
-                Layout.fillWidth: true
+                Layout.preferredWidth: 40
+                Layout.fillHeight: true
+
+                Text {
+                    text: "="
+                    color: "#25bd71"
+                    font.pointSize: 26
+                    anchors.centerIn: parent
+                }
             }
 
-            Text {
+            ScrollableText {
                 text: CalculatorEngine.resultStep.value
-                color: "#d4cfc5"
-                font.pointSize: 24
             }
+        }
+    }
+
+    Shortcut {
+        sequences: ["Up", "k"]
+        onActivated: {
+            historyList.contentY = Math.max(0, historyList.contentY - 60);
+        }
+    }
+
+    Shortcut {
+        sequences: ["Down", "j"]
+        onActivated: {
+            let maxScroll = Math.max(0, historyList.contentHeight - historyList.height);
+
+            historyList.contentY = Math.min(maxScroll, historyList.contentY + 60);
         }
     }
 }

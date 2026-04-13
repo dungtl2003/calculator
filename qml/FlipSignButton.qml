@@ -10,6 +10,7 @@ CalculatorButton {
 
     text: "±"
     palette.buttonText: "#25bd71"
+    keySequences: ["~"]
 
     onClicked: CalculatorEngine.flipValueSign()
 }

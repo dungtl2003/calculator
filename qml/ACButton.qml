@@ -6,6 +6,7 @@ CalculatorButton {
 
     Layout.preferredWidth: __minSide + 5
 
+    keySequences: ["Esc"]
     text: "AC"
     palette.buttonText: "#b22524"
     font {

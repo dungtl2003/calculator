@@ -9,6 +9,7 @@ CalculatorButton {
         // By default, Qt automatically applies a color overlay so the icon matches the current application theme (which often defaults to white text in many Linux desktop environments).
         color: "transparent"
     }
+    keySequences: ["Backspace"]
 
     onClicked: CalculatorEngine.deleteLastDigit()
 }
