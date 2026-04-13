@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.dungtl2003.Calculator</id>
+  
+  <metadata_license>CC0-1.0</metadata_license>
+  
+  <project_license>MIT</project_license>
+  
+  <name>Calculator</name>
+  <summary>A modern, responsive Qt6 calculator</summary>
+  
+  <description>
+    <p>
+      Calculator is a fast and lightweight desktop calculator built with C++ and QML. 
+      It features a clean, responsive interface, global keyboard shortcuts, and a scrollable calculation history.
+    </p>
+  </description>
+  
+  <launchable type="desktop-id">Calculator.desktop</launchable>
+  
+  <provides>
+    <binary>Calculator</binary>
+  </provides>
+  
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/dungtl2003/Calculator/main/assets/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+
+  <developer_name>Your Name</developer_name>
+  <url type="homepage">https://github.com/dungtl2003/Calculator</url>
+  <url type="bugtracker">https://github.com/dungtl2003/Calculator/issues</url>
+</component>

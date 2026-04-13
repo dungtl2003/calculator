@@ -2,8 +2,35 @@
 #include <iostream>
 
 void Logger::init() {
+  spdlog::level::level_enum level = spdlog::level::debug;
+
+#ifdef NDEBUG
+  // Default to info or warning for Release builds
+  level = spdlog::level::info;
+#endif
+
+  // Override with environment variable if present
+  if (const char *env_p = std::getenv("CALC_LOG_LEVEL")) {
+    std::string env_level(env_p);
+    if (env_level == "trace") {
+      level = spdlog::level::trace;
+    } else if (env_level == "debug") {
+      level = spdlog::level::debug;
+    } else if (env_level == "info") {
+      level = spdlog::level::info;
+    } else if (env_level == "warn") {
+      level = spdlog::level::warn;
+    } else if (env_level == "err") {
+      level = spdlog::level::err;
+    } else if (env_level == "critical") {
+      level = spdlog::level::critical;
+    } else if (env_level == "off") {
+      level = spdlog::level::off;
+    }
+  }
+
   Logger::init(Config{
-      .log_level = spdlog::level::debug,
+      .log_level = level,
   });
 }
 

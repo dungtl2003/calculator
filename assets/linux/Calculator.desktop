@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Calculator
+Comment=A modern, fast calculator built with Qt6
+Exec=Calculator
+Icon=Calculator
+Terminal=false
+Categories=Utility;Calculator;Math;Qt;

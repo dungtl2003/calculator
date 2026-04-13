@@ -10,4 +10,9 @@ build: clean
 compile:
 	cmake --build build/
 
-.PHONY: all clean build compile
+release:
+	cmake -B build/ -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -G Ninja
+	cmake --build build/
+	sudo cmake --install build/
+
+.PHONY: all clean build compile release

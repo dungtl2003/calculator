@@ -62,23 +62,24 @@ qt_add_qml_module(${CMAKE_PROJECT_NAME}
 
     QML_FILES
     qml/Application.qml
-    qml/CalculatorButton.qml
     qml/Display.qml
     qml/NumPad.qml
-    qml/DigitButton.qml
-    qml/OperatorButton.qml
-    qml/ACButton.qml
-    qml/BackspaceButton.qml
-    qml/FlipSignButton.qml
-    qml/DotButton.qml
-    qml/ScrollableText.qml
+
+    qml/components/CalculatorButton.qml
+    qml/components/DigitButton.qml
+    qml/components/OperatorButton.qml
+    qml/components/ACButton.qml
+    qml/components/BackspaceButton.qml
+    qml/components/FlipSignButton.qml
+    qml/components/DotButton.qml
+    qml/components/ScrollableText.qml
 
     SOURCES
     src/CalculatorEngine.h
     src/CalculatorEngine.cpp
 
     RESOURCES
-    qml/assets/backspace.svg
+    assets/backspace.svg
 )
 
 ################################################################################
@@ -115,7 +116,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     install(TARGETS ${CMAKE_PROJECT_NAME} RUNTIME DESTINATION bin/)
     install(FILES ${CMAKE_SOURCE_DIR}/assets/linux/${CMAKE_PROJECT_NAME}.desktop DESTINATION share/applications/)
     install(FILES ${CMAKE_SOURCE_DIR}/assets/linux/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION share/appdata/)
-    install(FILES ${CMAKE_SOURCE_DIR}/assets/linux/${CMAKE_PROJECT_NAME}.svg DESTINATION share/pixmaps/)
     install(FILES ${CMAKE_SOURCE_DIR}/assets/linux/${CMAKE_PROJECT_NAME}.svg DESTINATION share/icons/hicolor/scalable/apps/)
     install(FILES ${CMAKE_SOURCE_DIR}/LICENSE.md DESTINATION share/licenses/${CMAKE_PROJECT_NAME}/)
 endif()

@@ -314,6 +314,7 @@ void CalculatorEngine::flipValueSign() {
   calculate();
 }
 
+// https://en.wikipedia.org/wiki/Shunting_yard_algorithm
 void CalculatorEngine::calculate() {
   if (m_historyModel->getSteps().isEmpty()) {
     if (m_resultStep.value == "0") {
