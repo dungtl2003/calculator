@@ -10,7 +10,7 @@ build: clean
 compile:
 	cmake --build build/
 
-release:
+release: clean
 	cmake -B build/ -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -G Ninja
 	cmake --build build/
 	sudo cmake --install build/
