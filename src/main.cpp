@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
   qputenv("QT_QUICK_FLICKABLE_WHEEL_DECELERATION", "10000");
 #endif
 
-  qputenv("QT_QPA_PLATFORM", "wayland");
+  // qputenv("QT_QPA_PLATFORM", "wayland");
 
   QGuiApplication app(argc, argv);
 

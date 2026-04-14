@@ -17,6 +17,7 @@ set(APP_VERSION ${CMAKE_PROJECT_VERSION})
 
 message(STATUS "[CMAKE]   CMAKE_VERSION             = ${CMAKE_VERSION}")
 message(STATUS "[CMAKE]   CMAKE_PREFIX_PATH         = ${CMAKE_PREFIX_PATH}")
+message(STATUS "[CMAKE]   CMAKE_INSTALL_PREFIX      = ${CMAKE_INSTALL_PREFIX}")
 message(STATUS "[SYSTEM]  (HOST) SYSTEM NAME        = ${CMAKE_HOST_SYSTEM_NAME}")
 message(STATUS "[SYSTEM]  (HOST) SYSTEM VERSION     = ${CMAKE_HOST_SYSTEM_VERSION}")
 message(STATUS "[SYSTEM]  (HOST) SYSTEM PROCESSOR   = ${CMAKE_HOST_SYSTEM_PROCESSOR}")
@@ -112,12 +113,24 @@ endif()
 
 ## Linux
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
+        INSTALL_RPATH "${CMAKE_PREFIX_PATH}/lib"
+        BUILD_WITH_INSTALL_RPATH TRUE
+    )
+
     # System install rules
     install(TARGETS ${CMAKE_PROJECT_NAME} RUNTIME DESTINATION bin/)
     install(FILES ${CMAKE_SOURCE_DIR}/assets/linux/${CMAKE_PROJECT_NAME}.desktop DESTINATION share/applications/)
     install(FILES ${CMAKE_SOURCE_DIR}/assets/linux/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION share/appdata/)
     install(FILES ${CMAKE_SOURCE_DIR}/assets/linux/${CMAKE_PROJECT_NAME}.svg DESTINATION share/icons/hicolor/scalable/apps/)
     install(FILES ${CMAKE_SOURCE_DIR}/LICENSE.md DESTINATION share/licenses/${CMAKE_PROJECT_NAME}/)
+    install(CODE "
+        message(STATUS \"Updating icon and desktop caches...\")
+        execute_process(COMMAND gtk-update-icon-cache -f -t \"${CMAKE_INSTALL_PREFIX}/share/icons/hicolor\"
+                        ERROR_QUIET)
+        execute_process(COMMAND update-desktop-database \"${CMAKE_INSTALL_PREFIX}/share/applications\"
+                        ERROR_QUIET)
+    ")
 endif()
 
 ################################################################################

@@ -97,6 +97,8 @@ sudo make release
 Calculator
 ```
 
+For more information, read `Makefile`.
+
 ## To-Do List
 
 - [x] Core arithmetic engine setup
