@@ -33,4 +33,11 @@ release: clean
 	cmake --build build/
 	sudo cmake --install build/
 
-.PHONY: all clean build compile release
+uninstall:
+	@if [ -f build/install_manifest.txt ]; then \
+		sudo ./scripts/uninstall.sh; \
+	else \
+		echo "Manifest not found. Nothing to uninstall."; \
+	fi
+
+.PHONY: all clean build compile release uninstall

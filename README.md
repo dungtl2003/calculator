@@ -99,6 +99,11 @@ Calculator
 
 For more information, read `Makefile`.
 
+If later you don't want the app anymore, run:
+``` bash
+sudo ./scripts/uninstall.sh
+```
+
 ## To-Do List
 
 - [x] Core arithmetic engine setup
@@ -111,7 +116,7 @@ For more information, read `Makefile`.
 - [ ] Scientific calculator layout/mode
 - [ ] Persist calculation history between sessions (SQLite)
 - [ ] Windows/macOS installer packaging
-- [ ] Uninstall app script
+- [x] Uninstall app script
 
 ## License
 
