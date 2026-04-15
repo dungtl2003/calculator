@@ -1,4 +1,5 @@
 #include "CalculatorEngine.h" // "..." will priority local files first, <...> will do opposite
+#include <qhashfunctions.h>
 #include <spdlog/spdlog.h>
 #include <string>
 
@@ -387,7 +388,7 @@ void CalculatorEngine::calculate() {
     if (std::isinf(res)) {
       result = (res > 0) ? "INFINITY" : "-INFINITY";
     } else {
-      result = QString::number(res);
+      result = formatNumber(res);
     }
   }
 
@@ -456,5 +457,13 @@ CalculatorEngine::convertToNumber(const QString &input) const {
     return std::unexpected("the value is out of range");
   } catch (std::exception e) {
     return std::unexpected(e.what());
+  }
+}
+
+QString CalculatorEngine::formatNumber(double num) {
+  try {
+    return QString::number(num, 'g', 30);
+  } catch (std::exception e) {
+    return QString();
   }
 }

@@ -178,4 +178,5 @@ private:
                                             const double &second, Operator op);
   bool collapseTopOperation(std::stack<double> &nums,
                             std::stack<OperationStep> &steps);
+  QString formatNumber(double num);
 };

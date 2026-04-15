@@ -117,6 +117,7 @@ sudo ./scripts/uninstall.sh
 - [ ] Persist calculation history between sessions (SQLite)
 - [ ] Windows/macOS installer packaging
 - [x] Uninstall app script
+- [ ] Calculate large number correctly
 
 ## License
 
